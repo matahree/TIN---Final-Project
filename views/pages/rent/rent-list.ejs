@@ -1,0 +1,45 @@
+<%- include('../../fragments/header.ejs') %>
+    <main>
+        <h2><%= pageTitle %></h2>
+        
+        <table class="table-list">
+            
+            <thead>
+                <tr>
+                    <th><%= __('rent.fields.customer') %></th>
+                    <th><%= __('rent.fields.car') %></th>
+                    <th><%= __('rent.fields.rentalDate') %></th>
+                    <th><%= __('list.actions.title') %></th>
+                </tr>
+            </thead>
+    
+            <tbody>
+            <% for (let rent of rents) { %>
+                <tr>
+                    <td><%= rent.customer.name%> <%= rent.customer.surname%></td>
+                    <td><%= rent.car.carModel %></td>
+                    <td><%= rent.rentalDate %></td>
+                    <td>
+                        <ul class="list-actions">
+                            <li>
+                                <a href="/rent/details/<%=rent._id%>" class="list-actions-button-details"><%= __('list.actions.details') %></a>
+                            </li>
+                            <li>
+                                <a href="/rent/edit/<%=rent._id%>" class="list-actions-button-edit"><%= __('list.actions.edit') %></a>
+                            </li>
+                            <li>
+                                <a href="/rent/delete/<%=rent._id%>" class="list-actions-button-delete"><%= __('list.actions.delete') %></a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            <% } %>
+            </tbody>
+            
+        </table>
+
+        <p><a href="/rent/add" class="button-add"><%= __('customer.list.addNew') %></a></p>
+        
+    </main>
+    
+    <%- include('../../fragments/footer.ejs') %>

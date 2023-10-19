@@ -1,0 +1,93 @@
+{
+	"main-page": {
+		"content": "Strona główna",
+		"title": "Naprawa samochodów"
+	},
+	"logging": {
+		"logIn": "Zaloguj sie",
+		"logOut": "Wyloguj",
+		"email": "Email",
+		"password": "Hasło",
+		"text": "Zalogowany jako "
+	},
+	"nav": {
+		"main-page": "Strona główna",
+		"customers": "Klienci",
+		"cars": "Samochody",
+		"rent": "Wynajem"
+	},
+	"list": {
+		"actions": {
+			"title": "Działania",
+			"details": "Detale",
+			"edit": "Edytować",
+			"delete": "Usunąć"
+		}
+	},
+	"form": {
+		"actions": {
+			"return": "Powrót",
+			"edit": "Edytować",
+			"cancel": "Anuluj"
+		}
+	},
+	"customer": {
+		"list": {
+			"addNew": "Dodaj nowy czynsz",
+			"pageTitle": "customer.list.pageTitle"
+		},
+		"fields": {
+			"name": "customer.fields.name",
+			"surname": "customer.fields.surname",
+			"address": "customer.fields.address",
+			"email": "customer.fields.email"
+		}
+	},
+	"car": {
+		"fields": {
+			"carModel": "Model samochodu",
+			"VIN": "VIN",
+			"manufactured": "Zrobiony fabrycznie",
+			"NumberOfCars": "Liczba samochodów",
+			"color": "Kolor",
+			"ManufacturedDate": "Data produkcji"
+		},
+		"list": {
+			"title": "Samochody",
+			"addNew": "Dodaj nowy samochód",
+			"noData": "Brak samochodów w bazie danych",
+			"pageTitle": "Lista samochodów"
+		},
+		"form": {
+			"details": {
+				"pageTitle": "Szczegóły samochodu"
+			},
+			"add": {
+				"pageTitle": "Dodanie nowego samochodu",
+				"btnLabel": "Dodaj nowy samochód",
+				"confirm": {
+					"header": "Potwierdzenie",
+					"text": "Nowy samochód został pomyślnie utworzony"
+				}
+			},
+			"edit": {
+				"pageTitle": "Edycja samochodu",
+				"btnLabel": "Zapisz zmiany",
+				"confirm": {
+					"header": "Potwierdzenie",
+					"text": "Samochód został pomyślnie zaktualizowany"
+				}
+			}
+		}
+	},
+	"rent": {
+		"list": {
+			"pageTitle": "Lista wynajmu"
+		},
+		"fields": {
+			"customer": "rent.fields.customer",
+			"car": "rent.fields.car",
+			"rentalDate": "rent.fields.rentalDate"
+		}
+	}
+}

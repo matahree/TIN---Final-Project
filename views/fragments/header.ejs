@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Car Rental</title>
+
+    <link rel="stylesheet" href="/styles/style.css" />
+</head>
+
+<body>
+    <header>
+        <h1><%= __('main-page.title') %></h1>
+
+        <img src="../images/logo.png" alt="Car Rental" style="width:150px;height:150px;">
+
+    </header>
+
+    <% if(!loggedUser) { %>
+        <div id="login">
+            <h3><%= __('logging.logIn') %></h3>
+            <form method="post" action="/login" novalidate>
+                <label for="loginEmail"><%= __('logging.email') %>:</label>
+                <input type="email" id="loginEmail" name="email">
+
+                <label for="loginPassword"><%= __('logging.password') %>:</label>
+                <input type="password" id="loginPassword" name="password">
+
+                <input type="submit" value="<%= __('logging.logIn') %>">
+                <span id="loginErrors"><%= loginError ? loginError : ''%></span>
+
+
+
+            </form>
+        </div>
+    <% } else { %>
+    <span><%= __('logging.text') %><%=loggedUser.name + " " + loggedUser.surname%></span>
+    <a href="/logout"><%= __('logging.logOut') %></a>
+    <% } %>
+
+    <nav>
+        <ul>
+            <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>"><%= __('nav.main-page') %></a></li>
+            <% if(loggedUser) { %>
+            <li><a href="/customers" class="<%= navLocation == 'customers' ? 'active' : ''%>"><%= __('nav.customers') %></a></li>
+            <% } %>
+            <li><a href="/cars" class="<%= navLocation == 'cars' ? 'active' : ''%>"><%= __('nav.cars') %></a></li>
+            <li><a href="/rent" class="<%= navLocation == 'rent' ? 'active' : ''%>"><%= __('nav.rent') %></a></li>
+        </ul>
+        <ul>
+            <li><a href="/changeLang/pl" class="<%= lang == 'pl' ? 'active' : ''%>">PL</a></li>
+            <li><a href="/changeLang/en" class="<%= lang == 'en' ? 'active' : ''%>">EN</a></li>
+        </ul>
+    </nav>

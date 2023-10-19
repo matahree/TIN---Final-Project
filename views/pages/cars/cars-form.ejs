@@ -1,0 +1,105 @@
+<%- include('../../fragments/header.ejs') %>
+<main>
+    <script type="application/javascript" src="/js/validationCarsForm.js"></script>
+    <h2><%= pageTitle%></h2>
+
+    <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+
+        <input type="hidden" name="_id" value="<%= car._id %>">
+
+        <label for="carModel">Car Model:<abbr title="required" aria-label="required">*</abbr></label>
+        <input type="text" name="carModel" id="carModel" placeholder="ex:Renault Captur" value="<%= car.carModel %>" class="<%= validationErrors.find(e=>e.path.includes('carModel')) ? 'error-input' : '' %>" <%=(formMode=='showDetails' ) ? 'disabled' : '' %>/>
+        <span id="errorCarModel" class="errors-text">
+            <% if (validationErrors.find(e=> e.path.includes('carModel'))) { %>
+                <%= validationErrors.find(e=> e.path.includes('carModel')).message %>
+            <% } %>
+        </span>
+
+        <label for="VIN">VIN: <abbr title="required" aria-label="required">*</abbr></label>
+        <input type="text" name="VIN" id="VIN" placeholder="ex:1GBJG31U561151054" value="<%= car.VIN %>" class="<%= validationErrors.find(e=>e.path.includes('VIN')) ? 'error-input' : '' %>" <%=(formMode=='showDetails' ) ? 'disabled' : '' %>/>
+        <span id="errorVIN" class="errors-text">
+            <% if (validationErrors.find(e=> e.path.includes('VIN'))) { %>
+                <%= validationErrors.find(e=> e.path.includes('VIN')).message %>
+            <% } %>
+        </span>
+
+        <label for="manufactured">Manufactured:</label>
+        <input type="text" name="manufactured" id="manufactured" placeholder="ex:French automaker Renault" value="<%= car.manufactured %>" class="<%= validationErrors.find(e=>e.path.includes('manufactured')) ? 'error-input' : '' %>" <%=(formMode=='showDetails' ) ? 'disabled' : '' %>/>
+        <span id="errorManufactured" class="errors-text">
+            <% if (validationErrors.find(e=> e.path.includes('manufactured'))) { %>
+                <%= validationErrors.find(e=> e.path.includes('manufactured')).message %>
+            <% } %>
+        </span>
+
+        <label for="NumberOfCars">Number Of Cars:</label>
+        <input type="number" name="NumberOfCars" id="NumberOfCars" placeholder="ex:10" value="<%= car.NumberOfCars %>" class="<%= validationErrors.find(e=>e.path.includes('NumberOfCars')) ? 'error-input' : '' %>" <%=(formMode=='showDetails' ) ? 'disabled' : '' %>/>
+        <span id="errorNumberOfCars" class="errors-text">
+            <% if (validationErrors.find(e=> e.path.includes('NumberOfCars'))) { %>
+                <%= validationErrors.find(e=> e.path.includes('NumberOfCars')).message %>
+            <% } %>
+        </span>
+
+        <label for="color">Color:</label>
+        <input type="text" name="color" id="color" placeholder="ex:blue" value="<%= car.color %>" class="<%= validationErrors.find(e=>e.path.includes('color')) ? 'error-input' : '' %>" <%=(formMode=='showDetails' ) ? 'disabled' : '' %>/>
+        <span id="errorColor" class="errors-text">
+            <% if (validationErrors.find(e=> e.path.includes('color'))) { %>
+                <%= validationErrors.find(e=> e.path.includes('color')).message %>
+            <% } %>
+        </span>
+
+        <label for="ManufacturedDate">Manufactured Date:</label>
+        <input type="date" name="ManufacturedDate" id="ManufacturedDate" placeholder="ex:10.10.2006" value="<%= car.ManufacturedDate %>" class="<%= validationErrors.find(e=>e.path.includes('ManufacturedDate')) ? 'error-input' : '' %>" <%=(formMode=='showDetails' ) ? 'disabled' : '' %>/>
+        <span id="errorManufacturedDate" class="errors-text">
+            <% if (validationErrors.find(e=> e.path.includes('ManufacturedDate'))) { %>
+                <%= validationErrors.find(e=> e.path.includes('ManufacturedDate')).message %>
+            <% } %>
+        </span>
+
+        <% if (formMode == 'showDetails') { %>
+            <div>
+                <a class="list-actions-button-edit" href="/cars/edit/<%= car._id %>"><%= __('form.actions.edit') %></a>
+            </div>
+        <% } %>
+
+        <div>
+            <p id="errorsSummary" class="errors-text"></p>
+
+            <% if (formMode != 'showDetails') { %>
+            <input class="form-button-submit" type="submit" value="<%=btnLabel%>" />
+            <a class="form-button-cancel" href="/cars"><%= __('form.actions.cancel') %></a>
+            <% } else { %>
+                <a class="form-button-cancel" href="/cars"><%= __('form.actions.return') %></a>
+            <% } %>
+        </div>
+
+    </form>
+
+    <% if (formMode == 'showDetails' || formMode == 'edit') { %>
+        <h2>Rent Details</h2>
+
+        <table class="table-list">
+            <thead>
+            <tr>
+                <th>Client</th>
+                <th>Shipping address</th>
+                <th>Date Out</th>
+                <th>Date Back</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <% for (let b of car.rents) { %>
+                <tr>
+                    <td><%= b.customer.name %> <%= b.customer.surname %></td>
+                    <td><%= b.address %></td>
+                    <td><%= b.rentalDate.toISOString().split('T')[0] %></td>
+                    <td><%= b.returnDate ? b.returnDate.toISOString().split('T')[0] : '' %></td>
+                </tr>
+            <% } %>
+            </tbody>
+        </table>
+    <% } %>
+
+</main>
+
+<%- include('../../fragments/footer.ejs') %>

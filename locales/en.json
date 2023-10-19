@@ -1,0 +1,104 @@
+{
+	"main-page": {
+		"content": "Main Page",
+		"title": "Car Repair"
+	},
+	"logging": {
+		"logIn": "Log in",
+		"logOut": "Log out",
+		"email": "Email",
+		"password": "Password",
+		"text": "Logged as: "
+	},
+	"nav": {
+		"main-page": "Main page",
+		"customers": "Customers",
+		"cars": "Cars",
+		"rent": "Rent"
+	},
+	"list": {
+		"actions": {
+			"title": "Actions",
+			"details": "Details",
+			"edit": "Edit",
+			"delete": "Delete"
+		}
+	},
+	"form": {
+		"actions": {
+			"return": "Return",
+			"edit": "Edit",
+			"cancel": "Cancel"
+		}
+	},
+	"customer": {
+		"list": {
+			"addNew": "Add a new rent",
+			"pageTitle": "customer.list.pageTitle"
+		},
+		"fields": {
+			"name": "customer.fields.name",
+			"surname": "customer.fields.surname",
+			"address": "customer.fields.address",
+			"email": "customer.fields.email"
+		},
+		"form": {
+			"add": {
+				"btnLabel": "customer.form.add.btnLabel"
+			}
+		}
+	},
+	"car": {
+		"fields": {
+			"carModel": "Car Model",
+			"VIN": "VIN",
+			"manufactured": "Manufactured",
+			"NumberOfCars": "Number Of Cars",
+			"color": "Color",
+			"ManufacturedDate": "Manufactured Date"
+		},
+		"list": {
+			"title": "Car List",
+			"addNew": "Add a new car",
+			"noData": "No car in database",
+			"pageTitle": "Car list"
+		},
+		"form": {
+			"details": {
+				"pageTitle": "Car details"
+			},
+			"add": {
+				"pageTitle": "Add a new car",
+				"btnLabel": "Add new car",
+				"confirm": {
+					"header": "Confirmation",
+					"text": "The new car has been successfully created"
+				}
+			},
+			"edit": {
+				"pageTitle": "Edit an car",
+				"btnLabel": "Save changes",
+				"confirm": {
+					"header": "Confirmation",
+					"text": "The car has been successfully updated"
+				}
+			}
+		}
+	},
+	"rent": {
+		"list": {
+			"pageTitle": "Rent list"
+		},
+		"fields": {
+			"customer": "rent.fields.customer",
+			"car": "rent.fields.car",
+			"rentalDate": "rent.fields.rentalDate"
+		},
+		"form": {
+			"add": {
+				"pageTitle": "rent.form.add.pageTitle",
+				"btnLabel": "rent.form.add.btnLabel"
+			}
+		}
+	}
+}
